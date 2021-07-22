@@ -1,9 +1,7 @@
-<div>
-    <!-- Knowing is not enough; we must apply. Being willing is not enough; we must do. - Leonardo da Vinci -->
-    {{ $active }}
-    <br />
-    {{ $nama }}
+<nav class="nav flex-column">
     @foreach($list AS $row)
-    {{ $row }}
+    <a class="nav-link" href="#">
+        {{ $row['label'] }}
+    </a>
     @endforeach
-</div>
+</nav>

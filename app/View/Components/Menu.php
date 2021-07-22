@@ -11,12 +11,10 @@ class Menu extends Component
      *
      * @return void
      */
-    public $nama;
     public $active;
 
-    public function __construct($nama, $active)
+    public function __construct($active)
     {
-        $this->nama = $nama;
         $this->active = $active;
     }
 
@@ -27,12 +25,29 @@ class Menu extends Component
      */
     public function render()
     {
-        $data = ['minuman', 'makanan', 'tas'];
-
         return view('components.menu', [
-            'list' => $data,
-            'nama' => $this->nama,
             'active' => $this->active
         ]);
+    }
+
+    public function list()
+    {
+        return [
+            [
+                'label' => 'Dashboard'
+            ],
+            [
+                'label' => 'Movie'
+            ],
+            [
+                'label' => 'Teaters'
+            ],
+            [
+                'label' => 'Tickets'
+            ],
+            [
+                'label' => 'Users'
+            ],
+        ];
     }
 }

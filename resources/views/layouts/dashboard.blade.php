@@ -77,7 +77,7 @@
     </nav>
 
     <main class="py-4">
-      <x-menu nama="Team WETIX" :active="$active" />
+      <x-menu :active="$active" />
       @yield('content')
     </main>
   </div>
