@@ -24,9 +24,8 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
     }
 
     /**
@@ -59,7 +58,6 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
