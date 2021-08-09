@@ -9,7 +9,7 @@
       </div>
       <div class="col-4 text-right">
         <button class="btn btn-sm text-secondary" data-toggle="modal" data-target="#deleteModal">
-          Delete
+          <i class="fas fa-trash"></i>
         </button>
       </div>
     </div>
@@ -60,7 +60,7 @@
         <form action="{{ url('dashboard/user/delete/'. $user->id) }}" method="post">
           @csrf
           @method('delete')
-          <button class="btn btn-sm  btn-danger">Delete</button>
+          <button class="btn btn-sm  btn-danger"><i class="fas fa-trash"></i> Delete</button>
         </form>
       </div>
     </div>
