@@ -25,4 +25,5 @@ Route::get('/dashboard', [App\Http\Controllers\Dashboard\DashboardController::cl
 // Users
 Route::get('/dashboard/users', [App\Http\Controllers\Dashboard\UserController::class, 'index']);
 Route::get('/dashboard/user/edit/{id}', [App\Http\Controllers\Dashboard\UserController::class, 'edit']);
-Route::post('/dashboard/user/update/{id}', [App\Http\Controllers\Dashboard\UserController::class, 'update']);
+Route::put('/dashboard/user/update/{id}', [App\Http\Controllers\Dashboard\UserController::class, 'update']);
+Route::delete('/dashboard/user/delete/{id}', [App\Http\Controllers\Dashboard\UserController::class, 'destroy']);
