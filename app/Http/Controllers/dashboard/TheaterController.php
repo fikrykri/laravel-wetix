@@ -79,7 +79,7 @@ class TheaterController extends Controller
 
             return redirect()
                 ->route('dashboard.theaters')
-                ->with('message', __('messages.store', ['title' => $request->input('theater')]));
+                ->with('message', __('messages.update', ['title' => $request->input('theater')]));
         }
     }
 
@@ -152,6 +152,10 @@ class TheaterController extends Controller
      */
     public function destroy(Theater $theater)
     {
-        //
+        $title = $theater->theater;
+        $theater->delete();
+        return redirect()
+            ->route('dashboard.theaters')
+            ->with('message', __('messages.delete', ['title' => $title]));
     }
 }
