@@ -39,9 +39,16 @@ class TheaterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Theater $theaters)
     {
-        //
+        $active = 'Theaters';
+
+        return view('dashboard/theater/form', [
+            'theaters' => $theaters,
+            'active' => $active,
+            'button' => 'Create',
+            'url' => 'dashboard.theaters.store'
+        ]);
     }
 
     /**
