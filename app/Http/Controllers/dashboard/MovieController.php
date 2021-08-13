@@ -84,7 +84,7 @@ class MovieController extends Controller
 
             return redirect()
                 ->route('dashboard.movies')
-                ->with('message', 'Data movie berhasil di tambahkan');
+                ->with('message', __('messages.store', ['title' => $request->input('title')]));
         }
     }
 
@@ -145,13 +145,14 @@ class MovieController extends Controller
                 $movie->thumbnail = $filename;
             }
 
+            $title = $movie->title;
             $movie->title = $request->input('title');
             $movie->description = $request->input('description');
             $movie->save();
 
             return redirect()
                 ->route('dashboard.movies')
-                ->with('message', 'Data movie berhasil di ganti');
+                ->with('message', __('messages.update', ['title' => $title]));
         }
     }
 
@@ -163,10 +164,11 @@ class MovieController extends Controller
      */
     public function destroy(Movie $movie)
     {
+        $title = $movie->title;
         $movie->delete();
 
         return redirect()
             ->route('dashboard.movies')
-            ->with('message', 'Data movie berhasil di hapus');
+            ->with('message', __('messages.delete', ['title' => $title]));
     }
 }
