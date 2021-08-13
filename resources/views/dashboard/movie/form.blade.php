@@ -18,12 +18,14 @@
   <div class="card-body">
     <div class="row">
       <div class="col-md-8 offset-md-2">
-        <form action="{{ route($url, $movie->id) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route($url, $movie->id ?? '') }}" method="post" enctype="multipart/form-data">
           @csrf
+          @if (isset($movie))
           @method('put')
+          @endif
           <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control @error('title') {{ 'is-invalid' }} @enderror" name="title" value="{{ old('title') ?? $movie->title }}">
+            <input type="text" class="form-control @error('title') {{ 'is-invalid' }} @enderror" name="title" value="{{ old('title') ?? $movie->title ?? '' }}">
             @error('title')
             <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -31,7 +33,7 @@
 
           <div class="form-group">
             <label for="description">Description</label>
-            <textarea name="description" class="form-control @error('description') {{ 'is-invalid' }} @enderror">{{ old('description') ?? $movie->description }}</textarea>
+            <textarea name="description" class="form-control @error('description') {{ 'is-invalid' }} @enderror">{{ old('description') ?? $movie->description ?? '' }}</textarea>
             @error('description')
             <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -56,6 +58,7 @@
   </div>
 </div>
 
+@if(isset($movie))
 <div class="modal fade" id="deleteModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -78,4 +81,5 @@
     </div>
   </div>
 </div>
+@endif
 @endsection
