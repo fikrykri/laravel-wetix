@@ -40,7 +40,9 @@
         <tr>
           <th scope="row">{{ ($movies->currentPage() - 1) * $movies->perPage() + $loop->iteration }}</th>
           <td>{{ $movie->title }}</td>
-          <td>{{ $movie->thumbnail }}</td>
+          <td>
+            <img src="{{ asset('storage/movies/'.$movie->thumbnail)}}">
+          </td>
           <td>
             <!-- penggunaan url kurang efektif -->
             <!-- <a href="{{ url('dashboard/movie/edit/'. $movie->id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fas fa-pen"></i></a> -->
