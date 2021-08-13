@@ -21,6 +21,7 @@
   </div>
 
   <div class="card-body p-0">
+    @if($users->total())
     <table class="table table-borderless table-striped table-hover">
       <thead>
         <tr>
@@ -52,6 +53,9 @@
     </table>
 
     {{ $users->appends($request)->links() }}
+    @else
+    <h4 class="text-center p-3">{{ __('messages.no_data', ['module' => 'user']) }}</h4>
+    @endif
   </div>
 </div>
 @endsection
