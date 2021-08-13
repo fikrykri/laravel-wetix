@@ -40,12 +40,12 @@ class TheaterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Theater $theaters)
+    public function create(Theater $theater)
     {
         $active = 'Theaters';
 
         return view('dashboard/theater/form', [
-            'theaters' => $theaters,
+            'theaters' => $theater,
             'active' => $active,
             'button' => 'Create',
             'url' => 'dashboard.theaters.store'
@@ -102,7 +102,14 @@ class TheaterController extends Controller
      */
     public function edit(Theater $theater)
     {
-        //
+        $active = 'Theaters';
+
+        return view('dashboard/theater/form', [
+            'theater' => $theater,
+            'active' => $active,
+            'button' => 'Update',
+            'url' => 'dashboard.theaters.edit'
+        ]);
     }
 
     /**
