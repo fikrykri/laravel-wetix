@@ -83,7 +83,8 @@ class MovieController extends Controller
             $movie->save();
 
             return redirect()
-                ->route('dashboard.movies');
+                ->route('dashboard.movies')
+                ->with('message', 'Data movie berhasil di tambahkan');
         }
     }
 
@@ -149,7 +150,8 @@ class MovieController extends Controller
             $movie->save();
 
             return redirect()
-                ->route('dashboard.movies');
+                ->route('dashboard.movies')
+                ->with('message', 'Data movie berhasil di ganti');
         }
     }
 
@@ -163,6 +165,8 @@ class MovieController extends Controller
     {
         $movie->delete();
 
-        return redirect()->route('dashboard.movies');
+        return redirect()
+            ->route('dashboard.movies')
+            ->with('message', 'Data movie berhasil di hapus');
     }
 }
