@@ -5,6 +5,13 @@
   <a href="{{ route('dashboard.movies.create') }}" class="btn btn-primary btn-sm">+ Movie</a>
 </div>
 
+<div class="alert alert-success">
+  <strong>Data movie berhasil di tambahkan</strong>
+  <button type="button" class="close" data-dismiss="alert">
+    <span>&times;</span>
+  </button>
+</div>
+
 <div class="card">
   <div class="card-header">
     <div class="row">
