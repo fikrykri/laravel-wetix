@@ -13,9 +13,25 @@ class TheaterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, Theater $theaters)
     {
-        //
+        $q = $request->input('q');
+
+        $active = 'Theaters';
+
+        $theaters = $theaters->when($q, function ($query) use ($q) {
+            return $query
+                ->where('theater', 'like', '%' . $q . '%');
+        })
+            ->paginate(10);
+
+        $request = $request->all();
+
+        return view('dashboard/theater/list', [
+            'theaters' => $theaters,
+            'active' => $active,
+            'request' => $request
+        ]);
     }
 
     /**
